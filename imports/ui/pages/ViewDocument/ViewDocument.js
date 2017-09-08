@@ -34,7 +34,9 @@ const renderDocument = (doc, match, history) => (doc ? (
         </ButtonGroup>
       </ButtonToolbar>
     </div>
-    { doc && doc.body }
+    { doc &&
+    <img src={doc.body} alt={doc.title} />
+    }
   </div>
 ) : <NotFound />);
 

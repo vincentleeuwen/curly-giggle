@@ -42,7 +42,8 @@ Documents.schema = new SimpleSchema({
   },
   body: {
     type: String,
-    label: 'The body of the document.',
+    label: 'The GIF url',
+    regEx: SimpleSchema.RegEx.Url,
   },
 });
 

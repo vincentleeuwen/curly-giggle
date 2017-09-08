@@ -69,10 +69,11 @@ class DocumentEditor extends React.Component {
         />
       </FormGroup>
       <FormGroup>
-        <ControlLabel>Body</ControlLabel>
-        <textarea
+        <ControlLabel>GIF url</ControlLabel>
+        <input
           className="form-control"
-          name="body"
+          type="url"
+          name="GIF url"
           ref={body => (this.body = body)}
           defaultValue={doc && doc.body}
           placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
