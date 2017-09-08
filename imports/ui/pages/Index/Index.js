@@ -6,8 +6,8 @@ import './Index.scss';
 const Index = () => (
   <div className="Index">
     <img
-      src="https://s3-us-west-2.amazonaws.com/cleverbeagle-assets/graphics/email-icon.png"
-      alt="Clever Beagle"
+      src="https://i.giphy.com/73YmkGK4hDub6.gif"
+      alt="Funny Gif"
     />
   <h1>Vaultoro Test</h1>
     <p>A boilerplate for products.</p>
