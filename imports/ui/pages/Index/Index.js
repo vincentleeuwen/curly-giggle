@@ -1,15 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import $ from 'jquery';
 
+import FunnyGif from '../../components/FunnyGif/FunnyGif';
 import './Index.scss';
 
-const Index = () => (
-  <div className="Index">
-    <img
-      src="https://i.giphy.com/73YmkGK4hDub6.gif"
-      alt="Funny Gif"
-    />
-  <h1>Vaultoro Test</h1>
+const Boilerlate = () => (
+  <div>
+    <h1>Vaultoro Test</h1>
     <p>A boilerplate for products.</p>
     <div>
       <Button href="http://cleverbeagle.com/pup">Read the Docs</Button>
@@ -21,4 +19,38 @@ const Index = () => (
   </div>
 );
 
-export default Index;
+export default class Index extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      randomGif: '',
+      loadingGif: true,
+    };
+  }
+  componentDidMount() {
+    // hard coded api key for now instead of config file, not sure what the rate limit is
+    const xhr = $.get('http://api.giphy.com/v1/gifs/random?api_key=1c12272c7b264df6858705989f47ca59');
+    xhr.done(
+      (response) => {
+        if (response.meta.status === 200) {
+          const randomGifId = response.data.id;
+          this.setState({
+            randomGif: `https://i.giphy.com/${randomGifId}.gif`,
+            loadingGif: false,
+          });
+        }
+      });
+  }
+  render() {
+    return (
+      <div className="Index">
+        <FunnyGif
+          gifUrl={this.state.randomGif}
+          loadingGif={this.state.loadingGif}
+        />
+        <Boilerlate />
+      </div>
+    );
+  }
+}
