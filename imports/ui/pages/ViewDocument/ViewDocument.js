@@ -37,6 +37,7 @@ const renderDocument = (doc, match, history) => (doc ? (
     { doc &&
     <img src={doc.body} alt={doc.title} />
     }
+    <h3>Rating: {doc.rating}</h3>
   </div>
 ) : <NotFound />);
 
