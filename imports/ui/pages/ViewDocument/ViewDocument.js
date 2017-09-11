@@ -7,6 +7,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import Documents from '../../../api/Documents/Documents';
 import NotFound from '../NotFound/NotFound';
 import Loading from '../../components/Loading/Loading';
+import Rating from '../../components/Rating/Rating';
 
 const handleRemove = (documentId, history) => {
   if (confirm('Are you sure? This is permanent!')) {
@@ -37,7 +38,7 @@ const renderDocument = (doc, match, history) => (doc ? (
     { doc &&
     <img src={doc.body} alt={doc.title} />
     }
-    <h3>Rating: {doc.rating}</h3>
+    <h3>Rating: <Rating rating={doc.rating} /></h3>
   </div>
 ) : <NotFound />);
 

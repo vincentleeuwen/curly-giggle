@@ -18,6 +18,9 @@ class DocumentEditor extends React.Component {
         body: {
           required: true,
         },
+        rating: {
+          required: true,
+        },
       },
       messages: {
         title: {
@@ -25,6 +28,9 @@ class DocumentEditor extends React.Component {
         },
         body: {
           required: 'This thneeds a body, please.',
+        },
+        rating: {
+          required: 'This needs a rating, please.',
         },
       },
       submitHandler() { component.handleSubmit(); },
