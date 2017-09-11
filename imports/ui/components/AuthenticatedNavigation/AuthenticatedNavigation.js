@@ -9,7 +9,10 @@ const AuthenticatedNavigation = ({ name, history }) => (
   <div>
     <Nav>
       <LinkContainer to="/documents">
-        <NavItem eventKey={1} href="/documents">Documents</NavItem>
+        <NavItem eventKey={1} href="/documents/">Gif docs</NavItem>
+      </LinkContainer>
+      <LinkContainer to="/youtube">
+        <NavItem eventKey={3} href="/youtube/">YouTube docs</NavItem>
       </LinkContainer>
     </Nav>
     <Nav pullRight>

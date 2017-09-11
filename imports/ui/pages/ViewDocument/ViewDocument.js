@@ -8,6 +8,7 @@ import Documents from '../../../api/Documents/Documents';
 import NotFound from '../NotFound/NotFound';
 import Loading from '../../components/Loading/Loading';
 import Rating from '../../components/Rating/Rating';
+import DocBody from '../../components/DocBody/DocBody';
 
 const handleRemove = (documentId, history) => {
   if (confirm('Are you sure? This is permanent!')) {
@@ -36,7 +37,7 @@ const renderDocument = (doc, match, history) => (doc ? (
       </ButtonToolbar>
     </div>
     { doc &&
-    <img src={doc.body} alt={doc.title} />
+    <DocBody url={doc.body} alt={doc.title} />
     }
     <h3>Rating: <Rating rating={doc.rating} /></h3>
   </div>

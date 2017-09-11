@@ -12,7 +12,8 @@ import Navigation from '../../components/Navigation/Navigation';
 import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
 import Index from '../../pages/Index/Index';
-import Documents from '../../pages/Documents/Documents';
+import GifDocuments from '../../pages/GifDocuments/GifDocuments';
+import YouTubeDocuments from '../../pages/YouTubeDocuments/YouTubeDocuments';
 import NewDocument from '../../pages/NewDocument/NewDocument';
 import ViewDocument from '../../pages/ViewDocument/ViewDocument';
 import EditDocument from '../../pages/EditDocument/EditDocument';
@@ -49,10 +50,14 @@ const App = props => (
       <Grid>
         <Switch>
           <Route exact name="index" path="/" component={Index} />
-          <Authenticated exact path="/documents" component={Documents} {...props} />
+          <Authenticated exact path="/documents" component={GifDocuments} {...props} />
           <Authenticated exact path="/documents/new" component={NewDocument} {...props} />
           <Authenticated exact path="/documents/:_id" component={ViewDocument} {...props} />
           <Authenticated exact path="/documents/:_id/edit" component={EditDocument} {...props} />
+          <Authenticated exact path="/youtube" component={YouTubeDocuments} {...props} />
+          <Authenticated exact path="/youtube/new" component={NewDocument} {...props} />
+          <Authenticated exact path="/youtube/:_id" component={ViewDocument} {...props} />
+          <Authenticated exact path="/youtube/:_id/edit" component={EditDocument} {...props} />
           <Authenticated exact path="/profile" component={Profile} {...props} />
           <Public path="/signup" component={Signup} {...props} />
           <Public path="/login" component={Login} {...props} />

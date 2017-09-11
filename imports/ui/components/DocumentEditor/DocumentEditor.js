@@ -56,7 +56,14 @@ class DocumentEditor extends React.Component {
         const confirmation = existingDocument ? 'Document updated!' : 'Document added!';
         this.form.reset();
         Bert.alert(confirmation, 'success');
-        history.push(`/documents/${documentId}`);
+        // FIXME: This is surely a hack, but so is hard coding urls IMHO.
+        // TODO: The type of document should probably me stored on the model,
+        // or another container component should be created.
+        if (doc.body.includes('youtube.com')) {
+          history.push(`/youtube/${documentId}`);
+        } else {
+          history.push(`/documents/${documentId}`);
+        }
       }
     });
   }
@@ -80,7 +87,7 @@ class DocumentEditor extends React.Component {
         <input
           className="form-control"
           type="url"
-          name="GIF url"
+          name="Url"
           ref={body => (this.body = body)}
           defaultValue={doc && doc.body}
           placeholder="Insert gif url"
