@@ -38,6 +38,7 @@ class DocumentEditor extends React.Component {
     const doc = {
       title: this.title.value.trim(),
       body: this.body.value.trim(),
+      rating: parseInt(this.rating.value, 10),
     };
 
     if (existingDocument) doc._id = existingDocument;
@@ -76,7 +77,20 @@ class DocumentEditor extends React.Component {
           name="GIF url"
           ref={body => (this.body = body)}
           defaultValue={doc && doc.body}
-          placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
+          placeholder="Insert gif url"
+        />
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>Rating</ControlLabel>
+        <input
+          className="form-control"
+          type="number"
+          min="1"
+          max="5"
+          name="Rating"
+          ref={rating => (this.rating = rating)}
+          defaultValue={doc && doc.rating}
+          placeholder="Rating"
         />
       </FormGroup>
       <Button type="submit" bsStyle="success">
@@ -87,7 +101,7 @@ class DocumentEditor extends React.Component {
 }
 
 DocumentEditor.defaultProps = {
-  doc: { title: '', body: '' },
+  doc: { title: '', body: '', rating: '' },
 };
 
 DocumentEditor.propTypes = {

@@ -45,6 +45,12 @@ Documents.schema = new SimpleSchema({
     label: 'The GIF url',
     regEx: SimpleSchema.RegEx.Url,
   },
+  rating: {
+    type: Number,
+    label: 'Rating',
+    min: 1,
+    max: 5,
+  },
 });
 
 Documents.attachSchema(Documents.schema);
